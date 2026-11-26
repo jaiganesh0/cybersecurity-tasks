@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Enable 2FA{% endblock %}
+{% block body %}<h2>Enable 2FA</h2>
+<p>Open Google Authenticator / Authy, choose "Enter a setup key" and add:</p>
+<p><code>{{ secret }}</code></p>
+<form method="post">
+ <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+ <label>Enter the 6-digit code to confirm</label>
+ <input name="code" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" required>
+ <button>Enable</button>
+</form><p><a href="{{ url_for('dashboard') }}">Cancel</a></p>{% endblock %}

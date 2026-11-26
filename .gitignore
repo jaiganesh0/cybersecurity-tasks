@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.db
+*.joblib
+task2_vulnerability_scanner/report.json
+task2_vulnerability_scanner/report.txt
+.venv/

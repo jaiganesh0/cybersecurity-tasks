@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block title %}Dashboard{% endblock %}
+{% block body %}<h2>Welcome, {{ user.username }}!</h2>
+<p>Email: {{ user.email }}</p>
+<p>2FA: {{ "Enabled" if user.totp_enabled else "Not enabled" }}
+ {% if not user.totp_enabled %}- <a href="{{ url_for('setup_2fa') }}">Enable</a>{% endif %}</p>
+<form method="post" action="{{ url_for('logout') }}">
+ <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+ <button>Logout</button>
+</form>{% endblock %}

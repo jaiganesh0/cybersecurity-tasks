@@ -1,0 +1,27 @@
+============================================================
+VULNERABILITY SCAN REPORT
+============================================================
+Target : 127.0.0.1
+Time   : 2026-11-25T17:15:24
+
+Open ports (1):
+  - 8000  HTTP-alt     HTTP/1.0 200 OK | Server: Apache/2.2.15  | Date: Wed, 25 Nov
+
+Findings (7):
+  [HIGH] Outdated Apache 2.2.15 on port 8000
+      Fix: Upgrade to 2.4.58 or newer.
+  [MEDIUM] [port 8000] Missing header Content-Security-Policy
+      Fix: Add CSP to reduce XSS risk.
+  [MEDIUM] [port 8000] Port 8000 serves plain HTTP without HTTPS redirect
+      Fix: Redirect HTTP to HTTPS.
+  [LOW] [port 8000] Missing header X-Frame-Options
+      Fix: Add X-Frame-Options to prevent clickjacking.
+  [LOW] [port 8000] Missing header X-Content-Type-Options
+      Fix: Add 'nosniff' to stop MIME sniffing.
+  [LOW] [port 8000] Missing header Referrer-Policy
+      Fix: Add Referrer-Policy to limit data leakage.
+  [LOW] [port 8000] Version disclosure: server: Apache/2.2.15 
+      Fix: Hide product/version details in headers.
+
+Summary: CRITICAL=0, HIGH=1, MEDIUM=2, LOW=4
+Note: basic educational scanner; not a replacement for Nmap/Nessus/OpenVAS.
